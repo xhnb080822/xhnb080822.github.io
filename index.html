@@ -1,208 +1,106 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <!-- 修复缩放问题：禁止页面缩小挤压，自动自适应屏幕完整展示 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-    <title>小禾工作室</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "微软雅黑", system-ui, sans-serif;
-        }
-        html, body {
-            background-color: #000;
-            color: #fff;
-            /* 高度自适应，不会截断底部内容 */
-            min-height: 100vh;
-            height: auto;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 20px 12px;
-        }
-        .container {
-            width: 100%;
-            max-width: 600px;
-            background-color: #111;
-            border-radius: 20px;
-            padding: 25px 18px;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-        }
-        .avatar {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            border: 3px solid #ffcc00;
-            overflow: hidden;
-            background: #222;
-        }
-        .avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        .title {
-            text-align: center;
-            font-size: 28px;
-            margin-bottom: 10px;
-            background: linear-gradient(90deg, #ffcc00, #66ccff, #ff66cc);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .sub-title {
-            text-align: center;
-            color: #ccc;
-            font-size: 16px;
-            margin-bottom: 35px;
-        }
-        .menu-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            /* 不横向溢出，自动换行 */
-            overflow-x: hidden;
-        }
-        .menu-item {
-            display: flex;
-            align-items: center;
-            background-color: #222;
-            border-radius: 8px;
-            padding: 15px 12px;
-            gap: 12px;
-            transition: all 0.25s ease;
-            /* 禁止内部元素横向溢出 */
-            flex-wrap: nowrap;
-        }
-        .menu-item:hover {
-            background-color: #2a2a2a;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.15);
-        }
-        .menu-icon {
-            font-size: 26px;
-            color: #ffcc00;
-            min-width: 30px;
-            text-align: center;
-            flex-shrink: 0;
-        }
-        .menu-info {
-            flex: 1;
-            /* 文字自动压缩不挤按钮 */
-            min-width: 0;
-        }
-        .menu-name {
-            font-size: 18px;
-            color: #ffcc00;
-            margin-bottom: 4px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .menu-desc {
-            font-size: 14px;
-            color: #aaa;
-            line-height: 1.4;
-            /* 小字自动换行，不挤压右侧按钮 */
-            word-break: break-all;
-        }
-        .menu-btn {
-            background-color: #ffcc00;
-            color: #000;
-            border: none;
-            padding: 10px 14px;
-            border-radius: 6px;
-            font-size: 15px;
-            font-weight: bold;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: background 0.2s ease;
-            flex-shrink: 0;
-        }
-        .menu-btn:hover {
-            background-color: #ffd633;
-        }
-        .menu-btn:active {
-            background-color: #e6b800;
-            transform: scale(0.96);
-        }
-        /* 小手机自适应优化，自动缩小元素适配屏幕 */
-        @media screen and (max-width: 390px) {
-            html,body{
-                padding: 15px 10px;
-            }
-            .menu-item {
-                padding: 12px 10px;
-                gap: 10px;
-            }
-            .menu-btn {
-                padding: 8px 10px;
-                font-size: 13px;
-            }
-            .title {
-                font-size: 24px;
-            }
-            .avatar{
-                width: 100px;
-                height: 100px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小禾官网</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
+body{
+    background:#121420;
+    background-image: linear-gradient(rgba(40,60,90,0.3) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(40,60,90,0.3) 1px,transparent 1px);
+    background-size:40px 40px;
+    padding:20px 16px;
+    color:#fff;
+}
+/* 缩小标题 */
+.title{
+    font-size:36px;
+    text-align:center;
+    color:#00e5ff;
+    text-shadow:0 0 8px #00e5ff,0 0 20px #00e5ff;
+    margin-bottom:24px;
+    font-weight:bold;
+}
+/* 公告卡片缩小 */
+.notice-card{
+    background:rgba(20,25,40,0.65);
+    border:1px solid #00ccff;
+    box-shadow:0 0 12px #0088ff66;
+    border-radius:14px;
+    padding:20px 18px;
+    margin-bottom:24px;
+}
+.notice-title{
+    font-size:24px;
+    color:#00e5ff;
+    margin-bottom:12px;
+    text-shadow:0 0 6px #00e5ff77;
+}
+.notice-text{
+    font-size:15px;
+    line-height:1.7;
+    color:#ffffff;
+}
+/* 通用按钮样式 */
+.btn{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+    border-radius:999px;
+    padding:16px 10px;
+    margin-bottom:16px;
+}
+.btn1{
+    background:linear-gradient(90deg,#00d8ff,#9922ff);
+}
+.btn-qq{
+    background:#00cc66;
+}
+/* TG按钮样式，匹配截图蓝色 */
+.btn-tg{
+    background:linear-gradient(90deg,#0099dd,#0077bb);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+}
+/* TG小飞机图标 */
+.tg-icon{
+    width:32px;
+    height:32px;
+}
+.btn:hover{
+    opacity:0.85;
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="avatar">
-            <img src="avatar.png" alt="工作室头像" onerror="this.style.display='none'">
-        </div>
-        <h1 class="title">小禾工作室</h1>
-        <p class="sub-title">小禾快手:5113377294</p>
-
-        <div class="menu-list">
-            <div class="menu-item">
-                <div class="menu-icon">🛒</div>
-                <div class="menu-info">
-                    <div class="menu-name">小禾主店铺</div>
-                    <div class="menu-desc">点击访问官方主店铺</div>
-                </div>
-                <button class="menu-btn" onclick="window.location.href='https://shop.368fk.cn/shop/5XP2Q6QD'">购买</button>
-            </div>
-            <div class="menu-item">
-                <div class="menu-icon">🛒</div>
-                <div class="menu-info">
-                    <div class="menu-name">小禾备用店铺</div>
-                    <div class="menu-desc">主店铺购买不了就点我进去备用店铺</div>
-                </div>
-                <button class="menu-btn" onclick="window.location.href='https://fkli.cc/VXL'">购买</button>
-            </div>
-            <div class="menu-item">
-                <div class="menu-icon">✈️</div>
-                <div class="menu-info">
-                    <div class="menu-name">小禾飞机频道</div>
-                </div>
-                <button class="menu-btn" onclick="window.location.href='https://t.me/QY0808'">点我加入</button>
-            </div>
-            <div class="menu-item">
-                <div class="menu-icon">🐧</div>
-                <div class="menu-info">
-                    <div class="menu-name">小禾🐧频道</div>
-                    <div class="menu-desc">点我加入小禾官方频道</div>
-                </div>
-                <button class="menu-btn" onclick="window.location.href='https://pd.qq.com/s/8v8fcvct?b=9'">点我加入</button>
-            </div>
-            <div class="menu-item">
-                <div class="menu-icon">💬</div>
-                <div class="menu-info">
-                    <div class="menu-name">小禾快手</div>
-                    <div class="menu-desc">点击关注小禾唯一快手</div>
-                </div>
-                <button class="menu-btn" onclick="window.location.href='https://v.kuaishou.com/KLsIiZXb'">点击关注</button>
-            </div>
+    <h1 class="title">小禾官网</h1>
+    <div class="notice-card">
+        <h2 class="notice-title">🚀小禾官网公告</h2>
+        <div class="notice-text">
+☆小禾全项目公告声明☆<br>
+本系列作品仅供学习研究，使用者的任何行为与应用无关，请在24小时内删除本应用[下载代表同意本协议]<br>
+若有侵权违法行为，请联系我方删除内容<br>
+本卡网均为自愿捐赠<br>
+无root玩家请勿下单内核，下单默认同意<br>
+不支持米八 下单默认同意<br>
+有事联系客服 恶意投诉拉黑删卡处理
         </div>
     </div>
+    <a href="https://shop.368fk.cn/shop/281" target="_blank" class="btn btn1">💳 免手续费卡网点我进入</a>
+    <a href="https://drive.uc.cn/s/596f7c62215c4?public=1" target="_blank" class="btn btn-qq">小禾美化下载地址</a>
+    <!-- 新增：加入TG频道按钮，替换href为你的TG链接 -->
+    <a href="https://t.me/QY0808" target="_blank" class="btn btn-tg">
+        <svg class="tg-icon" viewBox="0 0 24 24" fill="#ffffff">
+            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.242-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.333-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.141.121.099.154.232.17.33.016.098.034.31.018.476z"/>
+        </svg>
+        加入TG频道
+    </a>
 </body>
 </html>
