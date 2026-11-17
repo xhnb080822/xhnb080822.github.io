@@ -5,158 +5,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>小禾官网</title>
     <style>
-        /* 基础重置 */
+        /* 全局重置与背景设置 */
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+        }
+        body, html {
+            height: 100%;
+            background-color: #070b11; /* 深色背景 */
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px; /* 模拟网格背景 */
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center; /* 水平居中 */
+            align-items: center;     /* 垂直居中 */
+            overflow-y: auto;        /* 内容超长时允许滚动 */
         }
 
-        /* 让整个页面默认铺满屏幕，并使用 Flex 垂直居中 */
-        body {
-            background-color: #0b0f19;
-            /* 网格背景 */
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-            background-size: 20px 20px; /* 网格稍微调小一点显得更精致 */
-            color: #ffffff;
-            
-            min-height: 100vh;
+        /* 主容器 */
+        .wrapper {
+            width: 90%;
+            max-width: 400px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* 垂直居中 */
-            padding: 15px; /* 整体四周留一点点缝隙，不要贴死边框 */
-            overflow-x: hidden; /* 防止出现横向滚动条 */
+            padding: 20px 0;
         }
 
-        /* 顶部大标题 */
-        .main-title {
-            font-size: 26px; /* 调小了一点 */
+        /* 顶部标题 */
+        .title {
+            color: #00ffff;
+            font-size: 28px;
             font-weight: bold;
-            color: #00e5ff;
-            text-shadow: 0 0 10px rgba(0, 229, 255, 0.8), 0 0 20px rgba(0, 229, 255, 0.5);
-            margin-top: 10px;
-            margin-bottom: 20px; /* 缩短与卡片的距离 */
+            margin-bottom: 25px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
             letter-spacing: 2px;
         }
 
-        /* 主卡片 */
-        .card {
+        /* 蓝框主面板 */
+        .main-panel {
             width: 100%;
-            max-width: 420px; /* 稍微收窄一点 */
-            background-color: rgba(11, 15, 25, 0.85);
-            border: 2px solid #00e5ff;
-            border-radius: 12px;
-            padding: 20px 15px; /* 调小内边距 */
-            box-shadow: 0 0 15px rgba(0, 229, 255, 0.6), inset 0 0 10px rgba(0, 229, 255, 0.3);
-            position: relative;
-            /* 防止整个卡片把屏幕撑爆 */
+            border: 2px solid #00ffff;
+            border-radius: 15px;
+            padding: 20px;
+            background-color: rgba(5, 15, 25, 0.85);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5), inset 0 0 15px rgba(0, 255, 255, 0.2);
             display: flex;
             flex-direction: column;
+            gap: 15px; /* 按钮之间的间距 */
+            margin-bottom: 20px;
         }
 
         /* 公告标题 */
         .notice-title {
+            color: #00ffff;
             font-size: 18px;
             font-weight: bold;
-            color: #00e5ff;
-            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            text-shadow: 0 0 5px rgba(0, 229, 255, 0.5);
         }
 
-        /* 公告正文 */
+        /* 公告文字 */
         .notice-text {
-            font-size: 13px; /* 字体稍微缩小，保证不会太长 */
-            line-height: 1.5;
-            color: #e0e0e0;
-            margin-bottom: 20px;
+            color: #ffffff;
+            font-size: 13px;
+            line-height: 1.6;
         }
 
         /* 按钮通用样式 */
         .btn {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: block;
             width: 100%;
-            padding: 12px 0; /* 按钮高度变薄一点 */
-            margin-bottom: 12px; /* 按钮间距变小 */
+            padding: 15px;
             border-radius: 25px;
-            font-size: 15px;
+            text-align: center;
+            font-size: 16px;
             font-weight: bold;
-            text-decoration: none;
             color: #ffffff;
+            text-decoration: none;
+            border: none;
             cursor: pointer;
             transition: transform 0.1s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
-
         .btn:active {
-            transform: scale(0.97);
+            transform: scale(0.98);
         }
 
-        /* 最后一个按钮去掉底部的外边距 */
-        .btn:last-child {
-            margin-bottom: 0;
-        }
-
-        /* 绿色卡网按钮 */
+        /* 绿色按钮 */
         .btn-green {
-            background: linear-gradient(90deg, #11c25b, #0da34b);
+            background-color: #00cc55;
         }
 
         /* 橙色按钮 */
         .btn-orange {
-            background: linear-gradient(90deg, #ff6b00, #ff4500);
+            background-color: #ff5500;
         }
 
-        /* 底部提示框 */
-        .bottom-tip {
+        /* 底部提示 */
+        .footer-tip {
             width: 100%;
-            max-width: 420px;
-            border: 1px solid #00e5ff;
-            border-radius: 8px;
+            border: 1px solid #00ffff;
+            border-radius: 10px;
             padding: 12px;
             text-align: center;
-            color: #a0a0a0;
+            color: #8899aa;
             font-size: 13px;
-            margin-top: 15px; /* 距离上方卡片的距离 */
-            box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
-            background-color: rgba(11, 15, 25, 0.85);
+            background-color: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
         }
     </style>
 </head>
 <body>
 
-    <!-- 顶部大标题 -->
-    <div class="main-title">小禾官网</div>
+    <div class="wrapper">
+        <!-- 顶部标题 -->
+        <div class="title">小禾官网</div>
 
-    <!-- 主要内容卡片 -->
-    <div class="card">
-        <div class="notice-title">🚀小禾官网公告</div>
-        
-        <div class="notice-text">
-            ☆小禾全项目公告声明☆<br>
-            本系列作品仅供学习研究，使用者的任何行为与应用无关，请在24小时内删除本应用[下载代表同意本协议]<br>
-            若有侵权违法行为，请联系我方删除内容<br>
-            本卡网均为自愿捐赠<br>
-            有事联系客服 恶意投诉拉黑删卡处理
-        </div>
+        <!-- 发光蓝框 -->
+        <div class="main-panel">
+            <div class="notice-title">🚀 小禾官网公告</div>
+            
+            <div class="notice-text">
+                ☆小禾全项目公告声明☆<br>
+                本系列作品仅供学习研究，使用者的任何行为与应用无关，请在24小时内删除本应用[下载代表同意本协议]<br>
+                若有侵权违法行为，请联系我方删除内容<br>
+                本卡网均为自愿捐赠<br>
+                有事联系客服 恶意投诉拉黑删卡处理
+            </div>
 
-        <!-- 按钮区域 -->
-        <!-- 注意：请把 href="#" 中的 # 替换成你真实的网址链接 -->
-        <a href="https://q3g.66url.cn/AS6" class="btn btn-green">💳 官方卡网一（不能付款用其他卡网）</a>    
+            <!-- 按钮组 -->
+<a href="https://q3g.66url.cn/AS6" class="btn btn-green">💳 官方卡网一（不能付款用其他卡网）</a>    
         <a href="https://yun.139.com/shareweb/#/w/i/2yA8HrueJ7M7y" class="btn btn-orange">小禾注入安装包</a>
         <a href="https://drive.uc.cn/s/886e84f50f834?public=1" class="btn btn-orange">学生党赚米💰点我</a>
-    </div>
+        </div>
 
-    <!-- 底部提示 -->
-    <div class="bottom-tip">
-        点击上方任意按钮即可跳转界面
+        <!-- 底部提示 -->
+        <div class="footer-tip">
+            点击上方任意按钮即可跳转界面
+        </div>
     </div>
 
 </body>
