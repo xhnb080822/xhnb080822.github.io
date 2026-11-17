@@ -1,125 +1,163 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
-<title>怒川官网</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
-body{
-    background:#121420;
-    background-image: linear-gradient(rgba(40,60,90,0.3) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(40,60,90,0.3) 1px,transparent 1px);
-    background-size:40px 40px;
-    padding:12px 12px;
-    color:#fff;
-}
-.title{
-    font-size:26px;
-    text-align:center;
-    color:#00e5ff;
-    text-shadow:0 0 6px #00e5ff,0 0 14px #00e5ff;
-    margin-bottom:12px;
-    font-weight:bold;
-}
-.notice-card{
-    background:rgba(20,25,40,0.65);
-    border:1px solid #00ccff;
-    box-shadow:0 0 10px #0088ff66;
-    border-radius:10px;
-    padding:12px 12px;
-    margin-bottom:12px;
-}
-.notice-title{
-    font-size:17px;
-    color:#00e5ff;
-    margin-bottom:6px;
-    text-shadow:0 0 4px #00e5ff77;
-}
-.notice-text{
-    font-size:12px;
-    line-height:1.5;
-    color:#ffffff;
-}
-/*底部方框样式*/
-.footer-box{
-    background:rgba(20,25,40,0.65);
-    border:1px solid #00ccff;
-    box-shadow:0 0 10px #0088ff66;
-    border-radius:10px;
-    padding:10px 12px;
-    margin-top:12px;
-    font-size:12px;
-    line-height:1.5;
-    text-align:center;
-    color:#ccc;
-}
-.btn{
-    display:block;
-    text-align:center;
-    text-decoration:none;
-    color:white;
-    font-size:15px;
-    font-weight:bold;
-    border-radius:999px;
-    padding:10px 8px;
-    margin-bottom:10px;
-}
-.btn1{
-    background:linear-gradient(90deg,#00d8ff,#9922ff);
-}
-.btn‑backup{
-    background:linear-gradient(90deg,#44aaff,#6644ff);
-}
-.btn-qq{
-    background:#00cc66;
-}
-.btn-new{
-    background:linear-gradient(90deg,#ff5599,#ff2266);
-}
-.btn-tg{
-    background:linear-gradient(90deg,#0099dd,#0077bb);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-}
-/*快手按钮样式*/
-.btn‑ks{
-    background:linear-gradient(90deg,#ff8800,#ff3300);
-}
-.tg-icon{
-    width:22px;
-    height:22px;
-}
-.btn:hover{
-    opacity:0.85;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>小禾官网</title>
+    <style>
+        /* 基础重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* 让整个页面默认铺满屏幕，并使用 Flex 垂直居中 */
+        body {
+            background-color: #0b0f19;
+            /* 网格背景 */
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px; /* 网格稍微调小一点显得更精致 */
+            color: #ffffff;
+            
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* 垂直居中 */
+            padding: 15px; /* 整体四周留一点点缝隙，不要贴死边框 */
+            overflow-x: hidden; /* 防止出现横向滚动条 */
+        }
+
+        /* 顶部大标题 */
+        .main-title {
+            font-size: 26px; /* 调小了一点 */
+            font-weight: bold;
+            color: #00e5ff;
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.8), 0 0 20px rgba(0, 229, 255, 0.5);
+            margin-top: 10px;
+            margin-bottom: 20px; /* 缩短与卡片的距离 */
+            letter-spacing: 2px;
+        }
+
+        /* 主卡片 */
+        .card {
+            width: 100%;
+            max-width: 420px; /* 稍微收窄一点 */
+            background-color: rgba(11, 15, 25, 0.85);
+            border: 2px solid #00e5ff;
+            border-radius: 12px;
+            padding: 20px 15px; /* 调小内边距 */
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.6), inset 0 0 10px rgba(0, 229, 255, 0.3);
+            position: relative;
+            /* 防止整个卡片把屏幕撑爆 */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 公告标题 */
+        .notice-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #00e5ff;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            text-shadow: 0 0 5px rgba(0, 229, 255, 0.5);
+        }
+
+        /* 公告正文 */
+        .notice-text {
+            font-size: 13px; /* 字体稍微缩小，保证不会太长 */
+            line-height: 1.5;
+            color: #e0e0e0;
+            margin-bottom: 20px;
+        }
+
+        /* 按钮通用样式 */
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 12px 0; /* 按钮高度变薄一点 */
+            margin-bottom: 12px; /* 按钮间距变小 */
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #ffffff;
+            cursor: pointer;
+            transition: transform 0.1s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        /* 最后一个按钮去掉底部的外边距 */
+        .btn:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 绿色卡网按钮 */
+        .btn-green {
+            background: linear-gradient(90deg, #11c25b, #0da34b);
+        }
+
+        /* 橙色按钮 */
+        .btn-orange {
+            background: linear-gradient(90deg, #ff6b00, #ff4500);
+        }
+
+        /* 底部提示框 */
+        .bottom-tip {
+            width: 100%;
+            max-width: 420px;
+            border: 1px solid #00e5ff;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            color: #a0a0a0;
+            font-size: 13px;
+            margin-top: 15px; /* 距离上方卡片的距离 */
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+            background-color: rgba(11, 15, 25, 0.85);
+        }
+    </style>
 </head>
 <body>
-    <h1 class="title">怒川官网</h1>
-    <div class="notice-card">
-        <h2 class="notice-title">🚀怒川官网公告</h2>
+
+    <!-- 顶部大标题 -->
+    <div class="main-title">小禾官网</div>
+
+    <!-- 主要内容卡片 -->
+    <div class="card">
+        <div class="notice-title">🚀小禾官网公告</div>
+        
         <div class="notice-text">
-☆怒川全项目公告声明☆<br>
-本系列作品仅供学习研究，使用者的任何行为与应用无关，请在24小时内删除本应用[下载代表同意本协议]<br>
-若有侵权违法行为，请联系我方删除内容<br>
-本卡网均为自愿捐赠<br>
-有事联系客服 恶意投诉拉黑删卡处理
+            ☆小禾全项目公告声明☆<br>
+            本系列作品仅供学习研究，使用者的任何行为与应用无关，请在24小时内删除本应用[下载代表同意本协议]<br>
+            若有侵权违法行为，请联系我方删除内容<br>
+            本卡网均为自愿捐赠<br>
+            有事联系客服 恶意投诉拉黑删卡处理
         </div>
-        <a href="https://k.08ka.top/LWN" target="_blank" class="btn btn-qq">💳 官方卡网一（不能付款用其他卡网）</a>
-    <a href="https://shop.ymy9.com/shop/PKRNVWCE" target="_blank" class="btn btn-qq">💳 官方卡网二（不能付款用其他卡网）</a>
-    <!--新增QQ频道按钮-->
-    <a href="https://fkli.cc/VXL" target="_blank" class="btn btn-qq">💳 官方卡网三（不能付款用其他卡网）</a>
-    <a href
-    </a>
-    <!--新增：关注快手按钮，把href替换成你的快手主页链接-->
-    <a href="https://drive.uc.cn/s/56cae38998404?public=1" target="_blank" class="btn btn‑ks">学生党赚米💰点我</a>
-    <a href="https://drive.uc.cn/s/9b88f130ebdf4?public=1" target="_blank" class="btn btn‑ks">主播同款美化点我</a>
-    <!--底部方框，在这里修改文字-->
-    <div class="footer-box">
-点击上方任意按钮即可跳转界面
+
+        <!-- 按钮区域 -->
+        <!-- 注意：请把 href="#" 中的 # 替换成你真实的网址链接 -->
+        <a href="https://q3g.66url.cn/AS6" class="btn btn-green">💳 官方卡网一（不能付款用其他卡网）</a>    
+        <a href="https://yun.139.com/shareweb/#/w/i/2yA8HrueJ7M7y" class="btn btn-orange">小禾注入安装包</a>
+        <a href="https://drive.uc.cn/s/886e84f50f834?public=1" class="btn btn-orange">学生党赚米💰点我</a>
     </div>
+
+    <!-- 底部提示 -->
+    <div class="bottom-tip">
+        点击上方任意按钮即可跳转界面
+    </div>
+
 </body>
 </html>
